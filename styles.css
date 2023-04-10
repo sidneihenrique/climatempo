@@ -99,6 +99,7 @@ section {
 }
 
 .temp .number .maxmin span {
+    margin-left: .4rem;
     color: #c2bff4;
 }
 

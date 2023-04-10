@@ -18,7 +18,6 @@ function recebeCoordenadas(latitude, longitude){
 
             // Weather icon ::before
             let weather = data.weather[0].main.toLowerCase()
-            console.log(weather)
 
             const temperatureNow = document.querySelector('.temperature-now');
             const before = window.getComputedStyle(temperatureNow, "::before");
@@ -41,6 +40,37 @@ function recebeCoordenadas(latitude, longitude){
             let tempMax = document.createElement('span')
             tempMax.innerHTML = parseInt(data.main.temp_max) + "°"
             document.querySelector('.maxmin').appendChild(tempMax)
+
+            // Wind speed
+            let windSpeed = parseInt((data.wind.speed) * 3.6)
+
+            let wind = document.querySelector('.statistics :nth-child(1) .info h5')
+            wind.innerHTML = windSpeed
+
+            function createSpan() {
+                let span
+                return span = document.createElement('span')
+            }
+                
+            wind.appendChild(createSpan()).innerHTML = "km/h"
+
+            // Humidity
+            let humidity = data.main.humidity
+            let humidityHTML = document.querySelector('.statistics :nth-child(2) .info h5')
+            humidityHTML.innerHTML = humidity
+
+            let percentHumidity = humidityHTML.appendChild(createSpan())
+            percentHumidity.innerHTML = "%"
+
+            // Rain
+            let rain = data.clouds.all
+            let rainHTML = document.querySelector('.statistics :nth-child(3) .info h5')
+            rainHTML.innerHTML = rain
+
+            let percentRain = rainHTML.appendChild(createSpan())
+            percentRain.innerHTML = "%"
+
+
 
 
             
