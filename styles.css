@@ -50,7 +50,8 @@ section {
     width: 17.6rem;
     height: 17.6rem;
 
-    background: url(./assets/clouds.svg);
+    background: var(--background-image);
+    background-size: contain;
     position: absolute;
     top: -5.6rem;
     left: -5.6rem;
